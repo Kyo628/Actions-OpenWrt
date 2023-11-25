@@ -23,6 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/gl-inet/openwrt.git
+  REPO_LEDE: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: openwrt-19.07.8
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config.gl
@@ -59,7 +60,9 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
+        git clone $REPO_LEDE -b master lede
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
+        ln -sf /workdir/lede $GITHUB_WORKSPACE/lede
 
     - name: Load custom feeds
       run: |
