@@ -19,14 +19,14 @@ on:
     branches:
       - main
     paths:
-      - '.config.gl'
+      - '.config'
 
 env:
   REPO_URL: https://github.com/gl-inet/openwrt.git
   REPO_LEDE: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: openwrt-19.07.8
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: .config.gl
+  CONFIG_FILE: .config
   CUSTOM_FEEDS: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
