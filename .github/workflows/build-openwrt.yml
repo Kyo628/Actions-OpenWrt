@@ -71,15 +71,6 @@ jobs:
         cd openwrt
         $GITHUB_WORKSPACE/$CUSTOM_FEEDS
 
-    - name: Fix compile issue
-      run: |
-        cd /workdir/openwrt/staging_dir/host/bin
-        ln -s /usr/bin/upx upx
-        ln -s /usr/bin/upx-ucl upx-ucl
-        ls -l upx*
-        rm -rf /workdir/openwrt/feeds/packages/lang/golang
-        cp -r /workdir/lede/feeds/packages/lang/golang /workdir/openwrt/feeds/packages/lang/golang
-
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
