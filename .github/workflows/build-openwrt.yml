@@ -99,9 +99,6 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: Install feeds
-      run: cd openwrt && ./scripts/feeds install -a
-      
     - name: Fix compile issue
       run: |
         cd /workdir/openwrt/staging_dir/host/bin
@@ -110,7 +107,10 @@ jobs:
         ls -l upx*
         rm -rf /workdir/openwrt/feeds/packages/lang/golang
         svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang workdir/openwrt/feeds/packages/lang/golang
-        
+
+    - name: Install feeds
+      run: cd openwrt && ./scripts/feeds install -a
+      
     - name: Load custom configuration
       run: |
         [ -e files ] && mv files openwrt/files
