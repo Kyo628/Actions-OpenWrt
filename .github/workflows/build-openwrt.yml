@@ -23,7 +23,7 @@ on:
 
 env:
   REPO_URL: https://github.com/gl-inet/openwrt.git
-  REPO_LEDE: https://github.com/coolsnowwolf/lede
+  #REPO_LEDE: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: openwrt-19.07.8
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: .config
@@ -85,9 +85,9 @@ jobs:
       run: |
         df -hT $PWD
         git clone $REPO_URL -b $REPO_BRANCH openwrt
-        git clone $REPO_LEDE -b master lede
+        #git clone $REPO_LEDE -b master lede
         ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
-        ln -sf /workdir/lede $GITHUB_WORKSPACE/lede
+        #ln -sf /workdir/lede $GITHUB_WORKSPACE/lede
 
     - name: Load custom feeds
       run: |
@@ -105,8 +105,8 @@ jobs:
         ln -s /usr/bin/upx upx
         ln -s /usr/bin/upx-ucl upx-ucl
         ls -l upx*
-        rm -rf /workdir/openwrt/feeds/packages/lang/golang
-        svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang workdir/openwrt/feeds/packages/lang/golang
+        #rm -rf /workdir/openwrt/feeds/packages/lang/golang
+        #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang workdir/openwrt/feeds/packages/lang/golang
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
