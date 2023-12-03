@@ -79,6 +79,11 @@ jobs:
         sudo timedatectl set-timezone "$TZ"
         sudo mkdir -p /workdir
         sudo chown $USER:$GROUPS /workdir
+        sudo tee -a /etc/wsl.conf << EOF > /dev/null
+        [interop]
+        appendWindowsPath = false
+        EOF
+        exit
 
     - name: Clone source code
       working-directory: /workdir
