@@ -104,14 +104,14 @@ jobs:
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
 
-    - name: Fix compile issue
-      run: |
-        cd /workdir/openwrt/staging_dir/host/bin
-        ln -s /usr/bin/upx upx
-        ln -s /usr/bin/upx-ucl upx-ucl
-        ls -l upx*
-        #rm -rf /workdir/openwrt/feeds/packages/lang/golang
-        #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang workdir/openwrt/feeds/packages/lang/golang
+#    - name: Fix compile issue
+#      run: |
+#        cd /workdir/openwrt/staging_dir/host/bin
+#        ln -s /usr/bin/upx upx
+#        ln -s /usr/bin/upx-ucl upx-ucl
+#        ls -l upx*
+#        #rm -rf /workdir/openwrt/feeds/packages/lang/golang
+#        #svn co https://github.com/openwrt/packages/branches/openwrt-22.03/lang/golang workdir/openwrt/feeds/packages/lang/golang
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
