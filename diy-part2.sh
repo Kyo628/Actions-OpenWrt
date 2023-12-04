@@ -11,7 +11,7 @@
 #
 ./scripts/feeds update helloworld
 ./scripts/feeds install -a -f -p helloworld
-sed -i "/helloworld/d" "feeds.conf.default"
+sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 ./scripts/feeds clean
 ./scripts/feeds update -a
 ./scripts/feeds install -a
